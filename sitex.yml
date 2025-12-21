@@ -1,6 +1,6 @@
 ---
 title: "fedeotaran"
-theme: "super"
+theme: "default"
 code_theme: "github"
 build_folder: "_site"
 content_folder: "content"
