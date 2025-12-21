@@ -22,4 +22,8 @@ web-*.tar
 # Temporary files, for example, from tests.
 /tmp/
 
+# Ignore site output folder
 /_site
+
+# Obsidian folder
+/**/*/.obsidian
