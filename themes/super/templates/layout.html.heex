@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/<%= @code_theme %>.min.css" id="highlight-theme">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/elixir.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/erlang.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    body { font-family: 'Source Sans 3', Arial, sans-serif; }
+    code, pre { font-family: 'Source Code Pro', monospace; }
+    </style>
+    <script>
+      // Función para detectar el tema del sistema
+      function getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      // Función para cambiar el tema de highlight.js
+      function setHighlightTheme(theme) {
+        const link = document.getElementById('highlight-theme');
+        const lightTheme = '<%= @code_theme %>';
+        const darkTheme = '<%= @code_theme %>-dark';
+
+        if (theme === 'dark') {
+          link.href = `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/${darkTheme}.min.css`;
+        } else {
+          link.href = `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/${lightTheme}.min.css`;
+        }
+      }
+
+      // Configurar el tema inicial
+      setHighlightTheme(getSystemTheme());
+
+      // Escuchar cambios en el tema del sistema
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        setHighlightTheme(e.matches ? 'dark' : 'light');
+      });
+
+      // Inicializar highlight.js
+      hljs.highlightAll();
+    </script>
+    <title><%= @site_title %> | <%= @title %></title>
+  </head>
+  <body>
+    <%= @inner_body %>
+  </body>
+</html>

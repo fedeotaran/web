@@ -1,0 +1,61 @@
+<header>
+  <nav>
+    <ul>
+      <li>
+        <a href="/"><strong><%= @site_title %></strong></a>
+      </li>
+    </ul>
+    <ul>
+      <%= for section <- @pages do %>
+        <li><a href="<%= section.url %>"><%= section.title %></a></li>
+      <% end %>
+      <%= if @blog.enabled do %>
+        <li><a href="<%= @blog.url %>"><%= @blog.title %></a></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <article>
+    <header>
+      <hgroup>
+        <h1><%= @title %></h1>
+      </hgroup>
+    </header>
+
+    <section>
+      <%= @inner_body %>
+    </section>
+  </article>
+
+  <article>
+    <header>
+      <hgroup>
+        <h1>Latest posts</h1>
+      </hgroup>
+    </header>
+    <%= if length(@posts) > 0  do %>
+      <section>
+        <ul>
+          <%= for post <- Enum.take(@posts, 5) do %>
+            <li>
+              <a href="<%= "#{post.url}" %>">
+                <time><%= post.date %></time>
+                <strong><%= post.title %></strong>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </section>
+    <% end %>
+  </article>
+</main>
+
+<footer>
+  <p>
+    <small>
+      © <%= DateTime.utc_now().year %> - All rights reserved
+    </small>
+  </p>
+</footer>

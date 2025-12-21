@@ -1,0 +1,17 @@
+---
+title: "fedeotaran"
+theme: "super"
+code_theme: "github"
+build_folder: "_site"
+content_folder: "content"
+blog:
+  enabled: true
+  url: "/blog"
+  title: "📝 Blog"
+pages:
+  - url: "/"
+    title: "👋 Hi!"
+    file: "content/pages/home.md"
+  - url: "/me"
+    title: "👨‍💻 Me"
+    file: "content/pages/me.md"
