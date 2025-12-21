@@ -21,8 +21,8 @@ defmodule Web.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:sitex, github: "fedeotaran/sitex", branch: "master"}
-      {:sitex, path: "../sitex"}
+      {:sitex, github: "fedeotaran/sitex", branch: "master"}
+      # {:sitex, path: "../sitex"}
     ]
   end
 end
