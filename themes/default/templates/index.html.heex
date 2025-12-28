@@ -60,7 +60,7 @@
         <ul>
           <%= for post <- Enum.take(@posts, 5) do %>
             <li>
-              <a href="<%= "#{post.url}" %>">
+              <a href="<%= post.url %>">
                 <time><%= post.date %></time>
                 <strong><%= post.title %></strong>
               </a>
