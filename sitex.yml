@@ -1,5 +1,7 @@
 ---
 title: "fedeotaran"
+site_url: "https://fedeotaran.github.io"
+description: "Personal blog and website"
 theme: "default"
 code_theme: "github"
 build_folder: "_site"
